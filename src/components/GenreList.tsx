@@ -19,7 +19,9 @@ interface Props {
 }
 
 const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
-  const { data, isLoading } = useGenre();
+  const { data, isLoading, error } = useGenre();
+
+  if (error) return null;
 
   if (isLoading) return <Spinner />;
   return (
